@@ -19,7 +19,7 @@ class VehicleController extends CI_Controller {
 		$page_content['allusers'] = $this->usersmodel->getallusers();
         if ($this->validation->user_in()) {   
 			$this->load->view('template/header',$headercontent);
-            $this->load->view('webpages/users/users',$page_content);
+            $this->load->view('webpages/vehicles/my-vehicles',$page_content);
             $this->load->view('template/footer');
         } else {        
             redirect('login','refresh'); 

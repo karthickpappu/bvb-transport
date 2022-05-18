@@ -1810,3 +1810,166 @@ DEBUG - 2022-05-18 04:02:20 --> Global POST, GET and COOKIE data sanitized
 ERROR - 2022-05-18 04:02:20 --> 404 Page Not Found: Assets/images
 DEBUG - 2022-05-18 04:02:20 --> Global POST, GET and COOKIE data sanitized
 ERROR - 2022-05-18 04:02:20 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:37 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:37 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2022-05-18 04:11:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:11:37 --> Total execution time: 0.2583
+DEBUG - 2022-05-18 04:11:37 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:37 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2022-05-18 04:11:37 --> UTF-8 Support Enabled
+ERROR - 2022-05-18 04:11:37 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:37 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:37 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2022-05-18 04:11:37 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:11:37 --> 404 Page Not Found: Assets/plugins
+ERROR - 2022-05-18 04:11:37 --> 404 Page Not Found: Assets/plugins
+DEBUG - 2022-05-18 04:11:37 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:37 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:37 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:11:37 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:37 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:37 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:11:37 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:37 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:37 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:11:37 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:37 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:11:37 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:37 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:37 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2022-05-18 04:11:37 --> UTF-8 Support Enabled
+ERROR - 2022-05-18 04:11:37 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:37 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:37 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:11:37 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:37 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:37 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:11:37 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:37 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:11:37 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:38 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:38 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:38 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:38 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2022-05-18 04:11:38 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:11:38 --> 404 Page Not Found: Assets/images
+ERROR - 2022-05-18 04:11:38 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:38 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2022-05-18 04:11:38 --> UTF-8 Support Enabled
+ERROR - 2022-05-18 04:11:38 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:38 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:38 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:11:38 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:38 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:38 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:11:38 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:38 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:11:38 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:11:38 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:11:38 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:11:38 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:41 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:41 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2022-05-18 04:12:41 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Crypt class already loaded. Second attempt ignored.
+DEBUG - 2022-05-18 04:12:41 --> Total execution time: 0.2176
+DEBUG - 2022-05-18 04:12:42 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:42 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:42 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:42 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:42 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:42 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:42 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:42 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:42 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:42 --> 404 Page Not Found: Assets/plugins
+DEBUG - 2022-05-18 04:12:42 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:42 --> 404 Page Not Found: Assets/plugins
+DEBUG - 2022-05-18 04:12:42 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:42 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:42 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:42 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:42 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:42 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:42 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:42 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:42 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:42 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:42 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:42 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:42 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2022-05-18 04:12:42 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:42 --> 404 Page Not Found: Assets/images
+ERROR - 2022-05-18 04:12:42 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:42 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:42 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:42 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:43 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:43 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:43 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:43 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:43 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:43 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:43 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2022-05-18 04:12:43 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2022-05-18 04:12:43 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:43 --> 404 Page Not Found: Assets/images
+ERROR - 2022-05-18 04:12:43 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:43 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2022-05-18 04:12:43 --> UTF-8 Support Enabled
+ERROR - 2022-05-18 04:12:43 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:43 --> UTF-8 Support Enabled
+ERROR - 2022-05-18 04:12:43 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:43 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:43 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:43 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:43 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:43 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:43 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:43 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2022-05-18 04:12:43 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:43 --> 404 Page Not Found: Assets/images
+ERROR - 2022-05-18 04:12:43 --> 404 Page Not Found: Assets/images
+DEBUG - 2022-05-18 04:12:57 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:57 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:57 --> 404 Page Not Found: Assets/plugins
+DEBUG - 2022-05-18 04:12:57 --> UTF-8 Support Enabled
+DEBUG - 2022-05-18 04:12:57 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2022-05-18 04:12:57 --> 404 Page Not Found: Assets/plugins
