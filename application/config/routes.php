@@ -66,4 +66,14 @@ $route['access'] = 'AccessController/index/$1';
 $route['access/(:any)'] = 'AccessController/pages/$1';
 $route['data/access/(:any)'] = 'AccessController/'.$segment_3;
 
+//setting
+$route['profile'] = 'SettingController/index/$1';
+$route['profile/(:any)'] = 'SettingController/pages/$1';
+$route['data/profile/(:any)'] = 'SettingController/'.$segment_3;
+
+//setting
+$route['my-vehicles'] = 'VehicleController/index/$1';
+$route['my-vehicles/(:any)'] = 'VehicleController/pages/$1';
+$route['data/profile/(:any)'] = 'VehicleController/'.$segment_3;
+
 ?>

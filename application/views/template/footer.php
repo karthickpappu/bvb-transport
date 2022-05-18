@@ -1,4 +1,4 @@
-	     <div class="section-body" style="">
+	     <div class="section-body" style=" bottom: 0;position: -webkit-sticky;position: sticky;z-index: 1020;">
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
@@ -30,16 +30,16 @@
 <script src="<?php echo $this->config->item('base_url');?>assets/bundles/nestable.bundle.js"></script>
 <script src="<?php echo $this->config->item('base_url');?>assets/js/page/sortable-nestable.js"></script>
 <script src="<?php echo $this->config->item('base_url');?>assets/js/chart/knobjs.js"></script>
-
 <script src="<?php echo $this->config->item('base_url');?>assets/bundles/fullcalendar.bundle.js"></script>
 <script src="<?php echo $this->config->item('base_url');?>assets/js/page/calendar.js"></script>
-
 <script src="<?php echo $this->config->item('base_url');?>assets/bundles/summernote.bundle.js"></script>
 <script src="<?php echo $this->config->item('base_url');?>assets/js/page/summernote.js"></script>
-
 <script src="<?php echo $this->config->item('base_url');?>assets/bundles/sweetalert.bundle.js"></script>
 <script src="<?php echo $this->config->item('base_url');?>assets/plugins/dropify/js/dropify.min.js"></script>
 <script src="<?php echo $this->config->item('base_url');?>assets/js/page/sweetalert.js"></script>
+<script src='<?php echo $this->config->item('base_url');?>assets/js/page/pagination.js'></script>
+<script src='<?php echo $this->config->item('base_url');?>assets/js/page/filter.js'></script>
+<script src='<?php echo $this->config->item('base_url');?>assets/js/bootstrappagination.js'></script>
 <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js'></script>
 <script>

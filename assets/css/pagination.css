@@ -1,0 +1,102 @@
+﻿
+        .pagination>.pageactive>a, .pagination>.pageactive>a:focus, .pagination>.pageactive>a:hover, .pagination>.pageactive>span, .pagination>.pageactive>span:focus, .pagination>.pageactive>span:hover {
+            z-index: 3;
+            color: #fff;
+            cursor: default;
+            /* background-color: #0bafcc; */
+            border-color: #0bafcc;
+        }
+
+        .pagination>li>a, .pagination>li>span {
+            position: relative;
+            float: none;
+            padding: 0px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: #337ab7;
+            text-decoration: none;
+            background-color: rgb(10 177 206 / 0%);
+            border: 0px solid #ddd;
+        }
+
+        .pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+            background-color: #eee0;
+        }
+
+        /* .pagination{
+            text-align: center;
+            margin: 30px 30px 60px;
+            user-select: none;
+        } */
+
+        .pagination {
+            text-align: center;
+            margin: 10px 10px 10px 0px;
+            user-select: none;
+            width: 100%;
+            display: flex;
+            justify-content: right;
+        }
+        .pagination li{
+            display: inline-block;
+            margin: 5px;
+            box-shadow: 0 5px 25px rgb(1 1 1 / 10%);
+        }
+
+        .pagination li a{
+            color: #fff !important;
+            text-decoration: none;
+            font-size: 1.2em;
+            line-height: 35px;
+        }
+
+        .previous-page, .next-page{
+            background: #0AB1CE;
+            width: 80px;
+            /* border-radius: 45px; */
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .previous-page:hover{
+            transform: translateX(-5px);
+        }
+
+        .next-page:hover{
+            transform: translateX(5px);
+        }
+
+        .current-page, .dots{
+            background: #ccc;
+            width: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .pageactive{
+            background: #0AB1CE;
+        }
+        .disable {
+            background: #ccc;
+        }
+
+        .previous-page {
+            border-top-left-radius: 1.25rem;
+            border-bottom-left-radius: 1.25rem;
+        }
+        
+         .next-page {
+            border-top-right-radius: 1.25rem;
+            border-bottom-right-radius: 1.25rem;
+        }
+
+        .page-item:first-child .page-link {
+            margin-left: 0;
+            border-top-left-radius: 1.25rem;
+            border-bottom-left-radius: 1.25rem;
+        }
+
+        .page-item:last-child .page-link {
+            border-top-right-radius: 1.25rem;
+            border-bottom-right-radius: 1.25rem;
+        }

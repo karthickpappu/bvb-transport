@@ -1,3 +1,4 @@
+
 	<style>       
 	.card-collapsed .card-options-collapse i:before {
 		content: '\f078';
@@ -39,6 +40,117 @@
 		//padding: 6px 14px;
 		padding: .375rem .75rem;
 	}
+
+	.tablespan span{
+		display: inline-block;
+		width: 400px;
+		white-space: nowrap;
+		overflow: hidden !important;
+		text-overflow: ellipsis;
+	}
+	.tablespan  .tasktitle{
+		display: inline-block;
+		width: 300px;
+		white-space: nowrap;
+		overflow: hidden !important;
+		text-overflow: ellipsis;
+	}
+	.show-menu-arrow{
+		background: #fff;
+	}
+
+	.statusopen{
+		background: Gray;
+	}
+	.statusonprocess{
+		background: #03c2e6;
+	}
+	.statusonhold{
+		background: Orange;
+	}
+	.statusclarityneeded{
+		background: Orange;
+	}
+	.statustesting{
+		background: Orange;
+	}
+	.statuscompleted{
+		background: Green;
+	}
+	.statusclosed{
+		background: Green;
+	}
+
+	.team-info li img {
+    	border: 0px solid #fff;
+	}
+
+	.pagination .page-item.active .page-link {
+		color: #fff;
+		background-color: #4285f4;
+		border-radius: 0.125rem;
+		-webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+		box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+		-webkit-transition: all .2s linear;
+		transition: all .2s linear;
+	}
+	.pagination .page-item .page-link {
+		font-size: .9rem;
+		color: #212529;
+		background-color: transparent;
+		border: 0;
+		outline: 0;
+		-webkit-transition: all .3s linear;
+		transition: all .3s linear;
+	}
+	.page-item.active .page-link {
+		z-index: 3;
+		color: #fff;
+		background-color: #007bff;
+		border-color: #007bff;
+	}
+	.page-link {
+		position: relative;
+		display: block;
+		padding: 0.5rem 0.75rem;
+		margin-left: -1px;
+		line-height: 1.25;
+		color: #007bff;
+		background-color: #fff;
+		border: 1px solid #dee2e6;
+	}
+	.pagination .page-item .page-link {
+		font-size: .9rem;
+		color: #212529;
+		background-color: transparent;
+		border: 0;
+		outline: 0;
+		-webkit-transition: all .3s linear;
+		transition: all .3s linear;
+	}
+	.page-link {
+		position: relative;
+		display: block;
+		padding: 0.5rem 0.75rem;
+		margin-left: -1px;
+		line-height: 1.25;
+		color: #007bff;
+		background-color: #fff;
+		border: 1px solid #dee2e6;
+	}
+	.pagination .page-item.disabled .page-link {
+		color: #868e96;
+	}
+
+	.pagination li a {
+    	color: #212529 !important;
+	}
+	.pagination .page-item.active .page-link {
+    	color: #fff !important;
+	}
+	.pagination {
+    	margin: 10px 0px 30px 0px
+	}
 	</style> 
 
 	<?php                 
@@ -64,13 +176,33 @@
 						</ul>
 						<div class="header-action d-flex">
 							<div class="input-group mr-2">
+								<select class="selectpicker show-menu-arrow" data-style="form-control" data-live-search="true" title="Select User" name="assign_to">
+								<?php 
+									if($allusers){
+									foreach($allusers as $output){
+								?>
+									<option data-tokens="<?php echo $output->user_name;?>" value="<?php echo $output->user_id;?>"><?php echo $output->user_name;?></option>
+								<?php } } ?>
+								</select>
+							</div>
+							<div class="input-group mr-2">
+								<select class="selectpicker show-menu-arrow" data-style="form-control" data-live-search="true" title="Select Status" name="task_status">
+									<option value='Open'>Open</option>
+									<option value='On Process'>On Process</option>
+									<option value='On Hold'>On Hold</option>
+									<option value='Clarity Needed'>Clarity Needed</option>   
+									<option value='Testing'>Testing</option>
+									<option value='Completed'>Completed</option>
+									<option value='Closed'>Closed</option>
+								</select>
+							</div>
+							<div class="input-group mr-2">
 								<input type="text" class="form-control" placeholder="Search...">
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-							
+			</div>							
 		</div>
 	</div>
 		
@@ -81,48 +213,69 @@
 				<div class="tab-pane fade show active" id="TaskBoard-list" role="tabpanel">
 					<div class="row clearfix mt-2">
 						<?php 					
+							$Open = array_filter($alltask, function($product) {
+								// condition which makes a result belong to div2.
+								return ($product->task_status) == 'Open';
+							});
 							$planned = array_filter($alltask, function($product) {
 								// condition which makes a result belong to div2.
 								return ($product->task_status) == 'Planned';
 							});
-							$progress = array_filter($alltask, function($product) {
+							$process = array_filter($alltask, function($product) {
 								// condition which makes a result belong to div2.
-								return ($product->task_status) == 'In Progress';
+								return ($product->task_status) == 'On Process';
+							});
+							$hold = array_filter($alltask, function($product) {
+								// condition which makes a result belong to div2.
+								return ($product->task_status) == 'On Hold';
+							});
+							$clarity = array_filter($alltask, function($product) {
+								// condition which makes a result belong to div2.
+								return ($product->task_status) == 'Clarity Needed';
+							});
+							$testing = array_filter($alltask, function($product) {
+								// condition which makes a result belong to div2.
+								return ($product->task_status) == 'Testing';
 							});
 							$completed = array_filter($alltask, function($product) {
 								// condition which makes a result belong to div2.
 								return ($product->task_status) == 'Completed';
 							});
+							$close = array_filter($alltask, function($product) {
+								// condition which makes a result belong to div2.
+								return ($product->task_status) == 'Close';
+							});
+							
 						?>
 						<div class="col-lg-3 col-md-6">
 							<div class="card">
 								<div class="card-body text-center">
-									<h6>Planned</h6>
-									<input type="text" class="knob" value="<?php echo count($planned);?>" data-width="90" data-height="90" data-thickness="0.1" data-fgColor="#6e7687">
+									<h6>Open/Planned</h6>
+									<input type="text" class="knob" value="<?php echo count($planned+$Open);?>" data-width="90" data-height="90" data-thickness="0.1" data-fgColor="#6e7687">
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-3 col-md-6">
 							<div class="card">
 								<div class="card-body text-center">
-									<h6>In Progress</h6>
-									<input type="text" class="knob" value="<?php echo count($progress);?>" data-width="90" data-height="90" data-thickness="0.1" data-fgColor="#6e7687">
+									<h6>On Process/On Hold</h6>
+									<input type="text" class="knob" value="<?php echo count($process+$hold);?>" data-width="90" data-height="90" data-thickness="0.1" data-fgColor="#6e7687">
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-3 col-md-6">
 							<div class="card">
 								<div class="card-body text-center">
-									<h6>Completed</h6>
-									<input type="text" class="knob" value="<?php echo count($completed);?>" data-width="90" data-height="90" data-thickness="0.1" data-fgColor="#6e7687">
+									<h6>Clarity Needed/Testing</h6>
+									<input type="text" class="knob" value="<?php echo count($clarity+$testing);?>" data-width="90" data-height="90" data-thickness="0.1" data-fgColor="#6e7687">
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-3 col-md-6">
 							<div class="card">
 								<div class="card-body text-center">
-									<h6>In Completed</h6>
-									<input type="text" class="knob" value="0" data-width="90" data-height="90" data-thickness="0.1" data-fgColor="#6e7687">
+									<h6>Completed/Closed</h6>
+									<input type="text" class="knob" value="<?php echo count($completed+$close);?>" data-width="90" data-height="90" data-thickness="0.1" data-fgColor="#6e7687">
 								</div>
 							</div>
 						</div>
@@ -130,7 +283,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="table-responsive">
-								<table class="table table-hover table-vcenter mb-0 table_custom spacing8 text-nowrap">
+								<table id="jar" class="table table-hover table-vcenter mb-0 table_custom spacing8 text-nowrap">
 									<thead>
 										<tr>
 											<th>#</th>
@@ -151,40 +304,48 @@
 											foreach($alltask as $taskoutput){
 											$b=$a++;
 										?>
-										<tr>
+										<tr class="content">
 											<td><?php echo $b;?></td>
-											<td>
-												<h6 class="mb-0"><?php echo $taskoutput->title;?></h6>
-												<span><?php echo $taskoutput->description;?></span>
+											<td class="tablespan">
+												<h6 class="mb-0 tasktitle"><?php echo $taskoutput->title;?></h6>
+												<div>
+													<span><?php echo $taskoutput->description;?></span>
+												</div>
 											</td>
 											<td>
 											<?php 
 												$tags = explode(',',$taskoutput->assign_to);
 												$followerstag = explode(',',$taskoutput->followers);
 												$taskteam = '';
-												foreach($tags as $key) { 
-													foreach($allusers as $uoutput){
-														if($uoutput->user_id == $key){
-															$taskteam .= '<li><img src="'.$this->config->item("base_url").'assets/images/user.png" data-toggle="tooltip" data-placement="top" title="'.$uoutput->user_name.'" alt="Avatar"></li>';
-														}
-													}
-												}
 												$followers = '';
-												foreach($followerstag as $fkey) { 
-													foreach($allusers as $uoutput){
-														if($uoutput->user_id == $fkey){
-															$followers .= '<li><img src="'.$this->config->item("base_url").'assets/images/user.png" data-toggle="tooltip" data-placement="top" title="'.$uoutput->user_name.'" alt="Avatar"></li>';
-														}
-													}
-												}
 											?>
-												<ul class="list-unstyled team-info mb-0">
-													<?php echo $taskteam;?>
+												<ul class="list-unstyled team-info mb-0">													
+													<?php 
+														foreach($tags as $key) { 
+															foreach($allusers as $uoutput){
+																if($uoutput->user_id == $key){
+													?>
+																<li><img style="width:35px;height:35px;" src="<?php echo $this->config->item('base_url'); ?>assets/images/profile/<?php echo $uoutput->user_pic?>" alt="avatar" onerror="this.onerror=null;this.src='<?php echo $this->config->item('base_url')?>assets/images/user.png';" data-toggle="tooltip" data-placement="top" title="<?php echo $uoutput->user_name?>" alt="Avatar"></li>
+													<?php 
+																}
+															}
+														}													
+													?>
 												</ul>
 											</td>
 											<td>
 												<ul class="list-unstyled team-info mb-0">
-													<?php echo $followers;?>
+													<?php 
+														foreach($followerstag as $fkey) { 
+															foreach($allusers as $uoutput){
+																if($uoutput->user_id == $fkey){
+													?>
+																<li><img style="width:35px;height:35px;" src="<?php echo $this->config->item('base_url'); ?>assets/images/profile/<?php echo $uoutput->user_pic?>" alt="avatar" onerror="this.onerror=null;this.src='<?php echo $this->config->item('base_url')?>assets/images/user.png';" data-toggle="tooltip" data-placement="top" title="<?php echo $uoutput->user_name?>" alt="Avatar"></li>
+													<?php 
+																}
+															}
+														}													
+													?>
 												</ul>
 											</td>
 											<td>
@@ -195,7 +356,11 @@
 												<span class="tag tag-red"><?php echo $taskoutput->priority;?></span>
 											</td>
 											<td>
-												<span class="tag tag-blue">Planned</span>
+												<?php 
+													$status = str_replace(' ', '', strtolower($taskoutput->task_status));
+													$background = 'status'.$status.'"';
+												?>
+												<span class="tag tag-blue <?php echo $background; ?>"><?php echo $taskoutput->task_status;?></span>
 											</td>
 											<td>
 												<div class="clearfix">
@@ -217,6 +382,9 @@
 										<?php } ?>
 									</tbody>
 								</table>
+								<nav>
+									<ul class="pagination justify-content-center pagination-sm"></ul>
+								</nav>
 							</div>
 						</div>
 					</div>
@@ -739,92 +907,89 @@
 						</div>
 					</div>
 				</div>
-
 				
 			</div>                
 		</div>
 	</div>
+	<script>
+		/* Multiple Item Picker */
+		function selectprojectmodule(value){
+			$(".projectmoduleoption").hide();
+			$(".projectmodule_"+value).show();
+			$('.selectpicker').selectpicker('refresh');
+		}
 
-<script>
-/* Multiple Item Picker */
-function selectprojectmodule(value){
-	$(".projectmoduleoption").hide();
-	$(".projectmodule_"+value).show();
-    $('.selectpicker').selectpicker('refresh');
-}
-
-$(document).ready(function(){
-	$("#fdatepicker").datepicker({
-		"format": "d-m-yyyy",
-	});
-	$("#ddatepicker").datepicker({
-		"format": "d-m-yyyy",
-	});
-});
-
-$(document).on('click','#submit', function(e) { 
-	e.preventDefault();		
-	// for (instance in CKEDITOR.instances) {
-        // CKEDITOR.instances[instance].updateElement();
-    // }
-	if($("#createtask")[0].reportValidity()) 
-	{
-		var datastring =  new FormData($('#createtask')[0]); 
-		$.ajax({
-			type:'POST',
-			url:'<?php echo $this->config->item("base_url");?>data/task/create',
-			enctype: 'multipart/form-data',
-			data: datastring,    
-			contentType: false,
-			processData:false,
-			cache: false,
-			dataType:"JSON",
-			token: '<?php echo $this->security->get_csrf_hash();?>',
-			success:function(data){
-				console.log(data);
-				$('#token').val(data.csrfHash);
-				if(data.status == 1){				
-					swal({title: 'Action Update!',text: data.msg,type: 'success'},function() {
-						window.location.reload();
-					});
-				}else{				
-					swal({title: 'Action Update!',text: data.msg,type: 'error'},function() {
-						window.location.reload();
-					});
-				}
-			},
-			timeout: 10000,
-			async: false			
+		$(document).ready(function(){
+			$("#fdatepicker").datepicker({
+				"format": "d-m-yyyy",
+			});
+			$("#ddatepicker").datepicker({
+				"format": "d-m-yyyy",
+			});
 		});
-	}
-});
 
-function deletetask(){
-	swal({
-		title: "Are you sure to delete this  of ?",
-		text: "Delete Confirmation?",
-		type: "warning",
-		showCancelButton: true,
-		confirmButtonColor: "#DD6B55",
-		confirmButtonText: "Delete",
-		closeOnConfirm: false
-	  },
-	  function() {
-		$.ajax({
-			type: "post",
-			url: "url",
-			data: "data",
-			success: function(data) {}
-		  })
-		  .done(function(data) {
-			swal("Deleted!", "Data successfully Deleted!", "success");
-		  })
-		  .error(function(data) {
-			swal("Oops", "We couldn't connect to the server!", "error");
-		  });
-	  }
-	);
-}
+		$(document).on('click','#submit', function(e) { 
+			e.preventDefault();		
+			// for (instance in CKEDITOR.instances) {
+				// CKEDITOR.instances[instance].updateElement();
+			// }
+			if($("#createtask")[0].reportValidity()) 
+			{
+				var datastring =  new FormData($('#createtask')[0]); 
+				$.ajax({
+					type:'POST',
+					url:'<?php echo $this->config->item("base_url");?>data/task/create',
+					enctype: 'multipart/form-data',
+					data: datastring,    
+					contentType: false,
+					processData:false,
+					cache: false,
+					dataType:"JSON",
+					token: '<?php echo $this->security->get_csrf_hash();?>',
+					success:function(data){
+						console.log(data);
+						$('#token').val(data.csrfHash);
+						if(data.status == 1){				
+							swal({title: 'Action Update!',text: data.msg,type: 'success'},function() {
+								window.location.reload();
+							});
+						}else{				
+							swal({title: 'Action Update!',text: data.msg,type: 'error'},function() {
+								window.location.reload();
+							});
+						}
+					},
+					timeout: 10000,
+					async: false			
+				});
+			}
+		});
 
+		function deletetask(){
+			swal({
+				title: "Are you sure to delete this  of ?",
+				text: "Delete Confirmation?",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#DD6B55",
+				confirmButtonText: "Delete",
+				closeOnConfirm: false
+			},
+			function() {
+				$.ajax({
+					type: "post",
+					url: "url",
+					data: "data",
+					success: function(data) {}
+				})
+				.done(function(data) {
+					swal("Deleted!", "Data successfully Deleted!", "success");
+				})
+				.error(function(data) {
+					swal("Oops", "We couldn't connect to the server!", "error");
+				});
+			}
+			);
+		}
 
-</script>
+	</script>

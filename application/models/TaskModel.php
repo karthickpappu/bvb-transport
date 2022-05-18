@@ -222,7 +222,7 @@ Class TaskModel extends CI_Model {
 			$data['task_todo_code']		= $no_reg;
 			$data['lead_id']		    = $user_data['lead_id'];
 			$data['created_by']		    = $user_data['user_id'];
-			$data['task_id']		    = $user_data['task_id'];
+			$data['task_id']		    = $post_data['task_id'];
 			$data['title']		 	    = $post_data['title'];
 			$data['description']        = $post_data['description'];
             if(strlen($_FILES['task_todo_attachment']['name']) > 0){
@@ -251,6 +251,49 @@ Class TaskModel extends CI_Model {
 					$last_insert_id = $this->db->insert_id();
 					return true;
 				}
+			}
+			else
+            {
+                $this->msg = "UNKNOWN ERROR: Couldn't insert data";
+                return false;
+            }
+		} catch (Exception $e) {
+			var_dump($e->getMessage());
+		}
+    }
+
+    function edittasktodo($post_data,$token)
+    {					      
+		try 
+        { 
+			$user_data = $this->session->userdata('user_data');
+			$edit_tasktodo_id	 	    = $post_data['edit_tasktodo_id'];
+			$data['title']		 	    = $post_data['edit_title'];
+			$data['description']        = $post_data['edit_description'];
+            if(strlen($_FILES['edit_task_todo_attachment']['name']) > 0){
+                $_FILES['file']['name'] 			= $_FILES["edit_task_todo_attachment"]['name'];
+                $_FILES['file']['type'] 			= $_FILES["edit_task_todo_attachment"]['type'];
+                $_FILES['file']['tmp_name'] 		= $_FILES["edit_task_todo_attachment"]['tmp_name'];
+                $_FILES['file']['error'] 			= $_FILES["edit_task_todo_attachment"]['error'];
+                $_FILES['file']['size'] 			= $_FILES["edit_task_todo_attachment"]['size'];
+                $new_name 							= time().'_'.(str_replace(' ','_',$_FILES["edit_task_todo_attachment"]['name']));
+                $new_file_name 						= preg_replace('/[^A-Za-z0-9\-.]/', '',$new_name);
+                $config['upload_path']   			= './assets/images/task_todo/';
+                $config['allowed_types'] 			= 'pdf|pptx|docx|doc|jpg|jpeg|png';
+                $config['max_size']      			= '8388608';
+                $config['file_name']	 			= $new_file_name;	
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+                $this->upload->do_upload('file');
+                $data['task_todo_attachment'] 				= $new_file_name;	
+            }else{
+                $data['task_todo_attachment'] 				= $post_data['old_task_todo_attachment'];
+            }
+			$this->db->where('task_todo_id ', $edit_tasktodo_id);
+            $this->db->update('task_todo',$data);
+            if ($this->db->affected_rows() > 0)
+            {	
+				return true;
 			}
 			else
             {

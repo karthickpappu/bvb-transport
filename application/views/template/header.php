@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="<?php echo $this->config->item('base_url');?>assets/plugins/bootstrap/css/bootstrap.min.css" />
 	<!-- Plugins css -->
 	<link rel="stylesheet" href="<?php echo $this->config->item('base_url');?>assets/plugins/charts-c3/c3.min.css"/>
+	<link rel="stylesheet" href="<?php echo $this->config->item('base_url');?>assets/css/pagination.css"/>
 	<link rel="stylesheet" href="<?php echo $this->config->item('base_url');?>assets/plugins/sweetalert/sweetalert.css"/>
 	<link rel="stylesheet" href="<?php echo $this->config->item('base_url');?>assets/plugins/dropify/css/dropify.min.css">
 	<link rel="stylesheet" href="<?php echo $this->config->item('base_url');?>assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
@@ -27,6 +28,7 @@
 	<link rel="stylesheet" href="<?php echo $this->config->item('base_url');?>assets/css/font-awesome.min.css">
 	<script src="<?php echo $this->config->item('base_url');?>assets/ckeditor/ckeditor.js"></script>
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css'>
+	<link rel='stylesheet' href='https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css'>
 	<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 	<!-- Core css -->
 	<style>
@@ -79,6 +81,25 @@
             font-size: inherit;
             text-rendering: auto;
         }   
+        .card-fullscreen .card-options-fullscreen i:before {
+            content: '\f2d1';
+        }
+        .card-collapsed .card-options-collapse i:before {
+            content: '\f078';
+        }
+
+        i[class*="fa-"], .svg-inline--fa {
+            --spacing-inline: var(--spacing-6xs);
+        }
+        .fa-thin, .fat {
+            font-family: "Font Awesome 6 Pro";
+            /* font-weight: 100; */
+        }
+
+        .metismenu ul a::before {
+            display: none;
+        }
+
 	</style>
 </head>
 <body class="font-montserrat">
@@ -274,7 +295,7 @@
     <div class="user_div">
         <h5 class="brand-name mb-4">I-STEM Task Manager<a href="javascript:void(0)" class="user_btn"><i class="fa fa-close"></i></a></h5>
         <div class="card-body">
-            <a href="page-profile.html"><img class="card-profile-img" src="<?php echo $this->config->item('base_url');?>assets/images/profile/sanjeev.png" alt=""></a>
+            <a href="<?php echo $this->config->item('base_url');?>profile"><img class="card-profile-img" src="<?php echo $this->config->item('base_url');?>assets/images/profile/sanjeev.png" alt=""></a>
             <h6 class="mb-0"><?php echo $user_data['user_name'];?></h6>
             <span><?php echo $user_data['email'];?></span>
             <div class="d-flex align-items-baseline mt-3">
@@ -354,6 +375,18 @@
         <nav id="left-sidebar-nav" class="sidebar-nav">
             <ul class="metismenu">
                 <li class="g_heading">Project</li>
+                <li class="<?php if($title =='dashboard') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>dashboard"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
+                <li class="<?php if($title =='dashboard') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>personal-info"><i class="fa-solid fa-circle-info"></i><span>Personal Info</span></a></li>
+                <li class="<?php if($title =='dashboard') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>bookings-rides"><i class="fa fa-map"></i><span>Bookings/Rides</span></a></li>
+                <li class="<?php if($title =='dashboard') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>my-vehicles"><i class="fa fa-truck"></i><span>My Vehicles</span></a></li>
+                <li class="<?php if($title =='ticket') echo 'active';?>">
+                    <a href="javascript:void(0)" class="has-arrow arrow-c"aria-expanded="<?php if($title =='ticket') echo 'true';?>"><i class="fa fa-users"></i><span>Users</span></a>
+                    <ul>
+                         <li class="<?php if($title =='dashboard') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>my-drivers"><i class="fa-solid fa-steering-wheel"></i><span>My Drivers</span></a></li>
+                        <li class="<?php if($title =='dashboard') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>Client"><i class="fa fa-user"></i><span>Client</span></a></li>
+                        <li class="<?php if($title =='dashboard') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>Vendor"><i class="fa fa-user"></i><span>Vendor</span></a></li>
+                    </ul>
+                </li>
                 <?php                 
 		            // $this->load->model('HeaderModel', 'headermodel', TRUE);
                     $dashboardread 	        = $this->rolemodel->getpermission('dashboard','read');
@@ -368,38 +401,9 @@
                     $vendorread 	        = $this->rolemodel->getpermission('vendor','read');
                     $rolesread 	            = $this->rolemodel->getpermission('roles','read');
                     $modulesread 	        = $this->rolemodel->getpermission('modules','read');
-                    $roleaccessread 	    = $this->rolemodel->getpermission('role based access','read');
-                    $useraccessread 	    = $this->rolemodel->getpermission('user based access','read');                    
+                    $roleaccessread 	    = $this->rolemodel->getpermission('role access','read');
+                    $useraccessread 	    = $this->rolemodel->getpermission('user access','read');                    
                 ?>
-                <?php if($dashboardread){?>
-                    <li class="<?php if($title =='dashboard') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>dashboard"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
-                <?php } ?>
-                <?php if($projectread){?>
-				<li class="<?php if($title =='project') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>project"><i class="fa fa-list-ol"></i><span>Project list</span></a></li>
-                <?php } ?>
-                <?php if($taskboardread){?>
-                <li class="<?php if($title =='taskboard') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>taskboard"><i class="fa fa-calendar-check-o"></i><span>Taskboard</span></a></li>
-                <?php } ?>
-				<!--<li class="<?php if($title =='ticket') echo 'active';?>">
-                    <a href="javascript:void(0)" class="has-arrow arrow-c"aria-expanded="<?php if($title =='ticket') echo 'true';?>"><i class="fa fa-tag"></i><span>Ticket</span></a>
-                    <ul>
-                        <li><a href="<?php echo $this->config->item('base_url');?>ticket">Ticket List</a></li>
-                        <li><a href="<?php echo $this->config->item('base_url');?>ticket/details">Ticket Details</a></li>
-                    </ul>
-                </li>-->
-                <?php if($userread){?>
-                <li class="<?php if($title =='user') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>user"><i class="fa fa-user"></i><span>user</span></a></li>
-                <?php } ?>
-                <?php if($todoread){?>
-                <li class="<?php if($title =='todo-list') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>todo-list"><i class="fa fa-check-square-o"></i><span>Todo List</span></a></li>
-                <?php } ?>
-                <!--<li class="g_heading">App</li>
-                <li><a href="app-calendar.html"><i class="fa fa-calendar"></i><span>Calendar</span></a></li>
-                <li><a href="app-chat.html"><i class="fa fa-comments"></i><span>Chat</span></a></li>
-                <li><a href="app-contact.html"><i class="fa fa-address-book"></i><span>Contact</span></a></li>
-                <li><a href="app-filemanager.html"><i class="fa fa-folder"></i><span>FileManager</span></a></li>
-                <li><a href="app-setting.html"><i class="fa fa-gear"></i><span>Setting</span></a></li>
-                <li><a href="page-gallery.html"><i class="fa fa-photo"></i><span>Gallery</span></a></li>-->
                 <?php if($masterread){?>
                 <li  class="<?php if($title =='master') echo 'active';?>">
                     <a href="javascript:void(0)" class="has-arrow arrow-c"><i class="fa fa-lock"></i><span>Master</span></a>
@@ -427,14 +431,15 @@
                         <li class="<?php if($page =='modules') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>access/modules">Modules</a></li>
                         <?php } ?>
                         <?php if($roleaccessread){?>
-                        <li class="<?php if($page =='role-based-access') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>access/role-based-access">Role Based Access</a></li>
+                        <li class="<?php if($page =='role-access') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>access/role-access">Role Access</a></li>
                         <?php } ?>
                         <?php if($useraccessread){?>
-                            <li class="<?php if($page =='user-based-access') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>access/user-based-access">User Based Access</a></li>
+                            <li class="<?php if($page =='user-access') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>access/user-access">User Access</a></li>
                         <?php } ?>
                     </ul>
                 </li>
                 <?php } ?>
+                <li class="<?php if($title =='dashboard') echo 'active';?>"><a href="<?php echo $this->config->item('base_url');?>Settings"><i class="fa fa-gear"></i><span>Settings</span></a></li>
                 <!--<li class="g_heading">Support</li>
                 <li><a href="javascript:void(0)"><i class="fa fa-support"></i><span>Need Help?</span></a></li>
                 <li><a href="javascript:void(0)"><i class="fa fa-tag"></i><span>ContactUs</span></a></li>-->
@@ -566,7 +571,7 @@
                             <div class="dropdown d-flex">
                                 <a class="nav-link icon d-none d-md-flex btn btn-default btn-icon ml-2" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                    <a class="dropdown-item" href="page-profile.html"><i class="dropdown-icon fa fa-user"></i> Profile</a>
+                                    <a class="dropdown-item" href="<?php echo $this->config->item('base_url');?>profile"><i class="dropdown-icon fa fa-user"></i> Profile</a>
                                     <a class="dropdown-item" href="app-setting.html"><i class="dropdown-icon fa fa-gear"></i> Settings</a>
                                     <a class="dropdown-item" href="javascript:void(0)"><span class="float-right"><span class="badge badge-primary">6</span></span><i class="dropdown-icon fa fa-inbox"></i> Inbox</a>
                                     <a class="dropdown-item" href="javascript:void(0)"><i class="dropdown-icon fa fa-send"></i> Message</a>

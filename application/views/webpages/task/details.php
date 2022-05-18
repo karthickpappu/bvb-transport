@@ -195,19 +195,6 @@
                             <h3 class="card-title">Task Info</h3>
                             <div class="card-options">
                                 <a href="javascript:void(0)" class="card-options-remove" data-toggle="card-remove"><i class="fa fa-close"></i></a>
-                                <div class="item-action dropdown ml-2">
-                                    <a href="javascript:void(0)" data-toggle="dropdown"><i class="fa fa-ellipsis-vertical"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <!-- <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fa fa-eye"></i> View Details </a>
-                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fa fa-share-alt"></i> Share </a>
-                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fa fa-cloud-download"></i> Download</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fa fa-copy"></i> Copy to</a>
-                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fa fa-folder"></i> Move to</a>
-                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fa fa-edit"></i> Rename</a>
-                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fa fa-trash"></i> Delete</a> -->
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="card-body">
@@ -248,6 +235,18 @@
                                         <ul class="list-unstyled team-info userul">
                                             <?php echo $followers; ?>
                                         </ul>
+                                        <?php 
+                                            $taskusers = array_merge($tags,$followerstag);
+                                            if (in_array($user_data['user_id'], $taskusers))
+                                            {
+                                                if($taskboardwrite == '0')
+                                                {
+                                                    $option = 'style="pointer-events: none;"';
+                                                }
+                                            }else{
+                                                $option = 'style="pointer-events: none;"';
+                                            }
+                                        ?>
                                     </p>
                                 </li>
                                 <li class="list-group-item">
@@ -274,7 +273,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Task Details</h3>
                             <div class="card-options">
-                                <label <?php if($taskboardwrite == '0' ){ echo 'style="pointer-events: none;"' ;}?> class="dropdown todo_list" style="margin: 0px;">
+                                <label <?php echo $option; ?> class="dropdown todo_list" style="margin: 0px;">
                                     Task Status : 
                                     <div class="dd-button">
                                         <?php echo $taskbyid->task_status;?>
@@ -303,7 +302,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Task Todo Details</h3>
                             <div class="card-options">
-                                <button type="button" <?php if($taskboardcreate == '0' ){ echo 'style="pointer-events: none;"' ;}?> class="ml-15 btn btn-primary" onclick="taskid(<?php echo $taskbyid->task_id?>)" data-toggle="modal" data-target="#addtasktodo"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Add Todo</button> 
+                                <button type="button" <?php echo $option; ?>  class="ml-15 btn btn-primary" onclick="taskid(<?php echo $taskbyid->task_id?>)" data-toggle="modal" data-target="#addtasktodo"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Add Todo</button> 
                             </div>
                         </div>
                         <div class="card-body text-left">
@@ -312,7 +311,8 @@
                                     <thead>
                                         <tr>
                                             <th class="text-left">Title</th>
-                                            <th style="width:70%;"class="">Description</th>
+                                            <th style="width:60%;"class="">Description</th>
+                                            <th class="10%">Action</th>
                                             <th class="15%">status</th>
                                         </tr>
                                     </thead>
@@ -321,15 +321,22 @@
                                             if($alltasktodo){
                                             $a=1;
                                             foreach($alltasktodo as $tasktodooutput){
-                                            $b=$a++;
+                                            if($tasktodooutput->task_id == $taskbyid->task_id){
+                                                $b=$a++;
                                         ?>
                                         <tr>
+                                            <input type="hidden" id="todo_id_<?php echo $tasktodooutput->task_todo_id?>" value="<?php echo $tasktodooutput->task_id?>">
+                                            <input type="hidden" id="title_<?php echo $tasktodooutput->task_todo_id?>" value="<?php echo $tasktodooutput->title?>">
+                                            <input type="hidden" id="description_<?php echo $tasktodooutput->task_todo_id?>" value="<?php echo $tasktodooutput->description?>">
+                                            <input type="hidden" id="task_todo_attachment_<?php echo $tasktodooutput->task_todo_id?>" value="<?php echo $tasktodooutput->description?>">
+                                            <input type="hidden" id="tasktodo_status_<?php echo $tasktodooutput->task_todo_id?>" value="<?php echo $tasktodooutput->tasktodo_status?>">
                                             <td>                                                  
                                                 <span ><?php echo $tasktodooutput->title;?></span>
                                             </td>
                                             <td><?php echo $tasktodooutput->description;?></td>
+                                            <td><button <?php echo $option; ?> onclick="edittasktodo(<?php echo $tasktodooutput->task_todo_id?>)" data-toggle="modal" data-target="#edittasktodo" class="btn btn-info btn-sm" >Edit</button></td>
                                             <td class="totostatus"> 
-                                                <label <?php if($taskboardwrite == '0' ){ echo 'style="pointer-events: none;"' ;}?> class="dropdown">
+                                                <label <?php echo $option; ?>  class="dropdown">
                                                     <div class="dd-button">
                                                         <?php echo $tasktodooutput->tasktodo_status;?>
                                                     </div>
@@ -345,7 +352,7 @@
                                                 </label>
                                             </td>
                                         </tr>
-                                        <?php } } ?>                                            
+                                        <?php } } } ?>                                            
                                     </tbody>
                                 </table>
                             </div>
@@ -490,12 +497,57 @@
 			</div>
 		</div>
 	</div>
+        
+	<!-- Add New Module -->
+	<div class="modal fade" id="edittasktodo" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h6 class="title" id="defaultModalLabel">Edit Task Todo</h6>
+				</div>
+				<?php echo form_open_multipart('data/task/edittasktodo','id="edittasktodoform" name="edittasktodoform" autocomplete="on" ');?>
+					<div class="modal-body">
+						<div class="row clearfix">
+							<div class="col-12">
+								<div class="form-group">                                   
+									<input type="hidden" id="edit_tasktodo_id" name="edit_tasktodo_id" >
+									<input type="text" class="form-control" placeholder="Title" id="edit_title"  name="edit_title" required>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="form-group">
+									<textarea class="form-control" placeholder="Description" id="edit_description" name="edit_description" required></textarea>
+								</div>
+							</div>                   
+							<div class="col-12">
+								<div class="form-group">
+                                    <input type="file" class="dropify" name="edit_task_todo_attachment">
+                                    <input type="hidden" id="old_task_todo_attachment" name="old_task_todo_attachment">
+								</div>
+							</div>                   
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" id="edittasktodobtn" class="btn btn-primary">Edit</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
     <script>
         CKEDITOR.replace('editor1');
 
 		function taskid(task_id){
 			$("#task_id").val(task_id);
+		}
+
+		function edittasktodo(tasktodo_id){
+			$("#edit_tasktodo_id").val(tasktodo_id);
+            $("#edit_title").val($("#title_"+tasktodo_id).val());
+            $("#edit_description").val($("#description_"+tasktodo_id).val());
+            $("#old_task_todo_attachment").val($("#task_todo_attachment_"+tasktodo_id).val());
 		}
 
 		$(document).on('click','#submittasktodo', function(e) { 
@@ -506,6 +558,40 @@
 				$.ajax({
 					type:'POST',
 					url:'<?php echo $this->config->item("base_url");?>data/task/createtasktodo',
+					enctype: 'multipart/form-data',
+					data: datastring,    
+					contentType: false,
+					processData:false,
+					cache: false,
+					dataType:"JSON",
+					token: '<?php echo $this->security->get_csrf_hash();?>',
+					success:function(data){
+						console.log(data);
+						$('#token').val(data.csrfHash);
+						if(data.status == 1){				
+							swal({title: 'Action Update!',text: data.msg,type: 'success'},function() {
+								window.location.reload();
+							});
+						}else{				
+							swal({title: 'Action Update!',text: data.msg,type: 'error'},function() {
+								window.location.reload();
+							});
+						}
+					},
+					timeout: 10000,
+					async: false			
+				});
+			}
+		});
+
+		$(document).on('click','#edittasktodobtn', function(e) { 
+			e.preventDefault();		
+			if($("#edittasktodoform")[0].reportValidity()) 
+			{
+				var datastring =  new FormData($('#edittasktodoform')[0]); 
+				$.ajax({
+					type:'POST',
+					url:'<?php echo $this->config->item("base_url");?>data/task/edittasktodo',
 					enctype: 'multipart/form-data',
 					data: datastring,    
 					contentType: false,

@@ -82,6 +82,21 @@ class TaskController extends CI_Controller {
 		echo json_encode($message);
 	} 
 
+	function edittasktodo() {					
+		$token = openssl_random_pseudo_bytes(16);
+		$token = bin2hex($token);
+		$post_data = $this->input->post();
+		$creation = $this->taskmodel->edittasktodo($post_data,$token);
+		if($creation){
+			$message =array('status'=>'1','msg'=>'Task todo updated successfully.','icon'=>'success',"csrfTokenName" => $this->security->get_csrf_token_name(), "csrfHash" => $this->security->get_csrf_hash());
+		}else{
+			$message =array('status'=>'0','msg'=>'Somthing Went Wrong.','icon'=>'danger',"csrfTokenName" => $this->security->get_csrf_token_name(), "csrfHash" => $this->security->get_csrf_hash());
+		}
+		echo json_encode($message);
+	} 
+
+
+
 	function changetaskstatus() {					
 		$token = openssl_random_pseudo_bytes(16);
 		$token = bin2hex($token);

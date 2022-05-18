@@ -11,7 +11,7 @@ header("Strict-Transport-Security: max-age=31536000");
 | Base Site URL
 |--------------------------------------------------------------------------
 */
-$config['base_url'] = 'http://localhost/task-manager/';
+$config['base_url'] = 'http://localhost/bvbtrans/';
 
 /*
 |--------------------------------------------------------------------------

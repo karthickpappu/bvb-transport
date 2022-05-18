@@ -1,67 +1,133 @@
-    <style>       
-        .card-collapsed .card-options-collapse i:before {
-            content: '\f078';
-        } 
-        .card-collapsed .card-options-collapse i:before {
-            content: '\f078';
-        }
-        .card-fullscreen .card-options-fullscreen i:before {
-            content: '\f066';
-        }
-        .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark {
-            position: absolute;
-            display: inline-block;
-            right: 20px;
-            top: 6px;
-        }
-        .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
-            width: 100%;
-        }
-        .input-daterange .input-group-addon {
-            width: auto;
-            min-width: 15px;
-            padding: 7px 15px;
-            line-height: 1.42857143;
-            text-shadow: 0 1px 0 #fff;
-            border-width: 1px 0;
-            margin-left: -5px;
-            margin-right: -5px;
-        }
+<style>       
+    .card-collapsed .card-options-collapse i:before {
+        content: '\f078';
+    } 
+    .card-collapsed .card-options-collapse i:before {
+        content: '\f078';
+    }
+    .card-fullscreen .card-options-fullscreen i:before {
+        content: '\f066';
+    }
+    .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark {
+        position: absolute;
+        display: inline-block;
+        right: 20px;
+        top: 6px;
+    }
+    .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+        width: 100%;
+    }
+    .input-daterange .input-group-addon {
+        width: auto;
+        min-width: 15px;
+        padding: 7px 15px;
+        line-height: 1.42857143;
+        text-shadow: 0 1px 0 #fff;
+        border-width: 1px 0;
+        margin-left: -5px;
+        margin-right: -5px;
+    }
 
-        .dropdown-menu .dropdown-item {
-            color: #333537;
-            font-size: 14px;
-            padding: 5px;
-            margin: 0 10px;
-            width: auto;
-        }
-        .btn.btn-default, .dataTables_wrapper .dataTables_paginate .btn-default.paginate_button {
-            color: #4D5052;
-            background-color: #fff;
-            border-color: #E8E9E9;
-            //padding: 6px 14px;
-            padding: .375rem .75rem;
-        }
-        .input-client .show-tick{
-            width: 75% !important;
-        }
+    .dropdown-menu .dropdown-item {
+        color: #333537;
+        font-size: 14px;
+        padding: 5px;
+        margin: 0 10px;
+        width: auto;
+    }
+    .btn.btn-default, .dataTables_wrapper .dataTables_paginate .btn-default.paginate_button {
+        color: #4D5052;
+        background-color: #fff;
+        border-color: #E8E9E9;
+        //padding: 6px 14px;
+        padding: .375rem .75rem;
+    }
+    .input-client .show-tick{
+        width: 75% !important;
+    }
 
 
-        #allCardsContainer {
-            max-width: 100%;
-            width: 100%;
-            flex-wrap: wrap;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .mb-3, .my-3 {
-            margin-bottom: 1rem!important;
-            display: block !important;
-        }
-        .input-daterange input {
-            text-align: left;
-        }
+    #allCardsContainer {
+        max-width: 100%;
+        width: 100%;
+        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mb-3, .my-3 {
+        margin-bottom: 1rem!important;
+        display: block !important;
+    }
+    .input-daterange input {
+        text-align: left;
+    }
+    .pagination .page-item.active .page-link {
+        color: #fff;
+        background-color: #4285f4;
+        border-radius: 0.125rem;
+        -webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+        -webkit-transition: all .2s linear;
+        transition: all .2s linear;
+    }
+	.pagination .page-item .page-link {
+		font-size: .9rem;
+		color: #212529;
+		background-color: transparent;
+		border: 0;
+		outline: 0;
+		-webkit-transition: all .3s linear;
+		transition: all .3s linear;
+	}
+	.page-item.active .page-link {
+		z-index: 3;
+		color: #fff;
+		background-color: #007bff;
+		border-color: #007bff;
+	}
+	.page-link {
+		position: relative;
+		display: block;
+		padding: 0.5rem 0.75rem;
+		margin-left: -1px;
+		line-height: 1.25;
+		color: #007bff;
+		background-color: #fff;
+		border: 1px solid #dee2e6;
+	}
+	.pagination .page-item .page-link {
+		font-size: .9rem;
+		color: #212529;
+		background-color: transparent;
+		border: 0;
+		outline: 0;
+		-webkit-transition: all .3s linear;
+		transition: all .3s linear;
+	}
+	.page-link {
+		position: relative;
+		display: block;
+		padding: 0.5rem 0.75rem;
+		margin-left: -1px;
+		line-height: 1.25;
+		color: #007bff;
+		background-color: #fff;
+		border: 1px solid #dee2e6;
+	}
+	.pagination .page-item.disabled .page-link {
+		color: #868e96;
+	}
+
+	.pagination li a {
+    	color: #212529 !important;
+	}
+	.pagination .page-item.active .page-link {
+    	color: #fff !important;
+	}
+	.pagination {
+    	margin: 10px 0px 30px 0px
+	}
     </style>
 
     <?php                 
@@ -121,13 +187,13 @@
                     <div class="row clearfix">
                         <div class="col-lg-12">
                             <div class="table-responsive " id="datatr">
-                                <table class="table table-hover table-vcenter text-nowrap table_custom border-style list ">
+                                <table id="jar" class="table table-hover table-vcenter text-nowrap table_custom border-style list ">
                                     <tbody class="card-content">
                                     <?php 
                                         if($allusers){
                                         foreach($allusers as $output){
                                     ?>
-                                        <tr class="eachCard">
+                                        <tr class=" content">
                                             <td class="width35 hidden-xs">
                                                 <a href="javascript:void(0);" class="mail-star"><i class="fa fa-star"></i></a>
                                             </td>
@@ -180,7 +246,9 @@
                                     <?php } } ?>                                           
                                     </tbody>
                                 </table>                                
-                                <div class="pagination"> </div>
+                                <nav>
+									<ul class="pagination justify-content-center pagination-sm"></ul>
+								</nav>
                             </div>
                         </div>
                     </div>
@@ -194,7 +262,7 @@
                         ?>
                         <div class="col-lg-3 col-md-6 col-sm-12 userdivcontentsub">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body">     
                                     <div class="card-status bg-blue"></div>
                                     <div class="mb-3"> <img  src="<?php echo $this->config->item('base_url');?>assets/images/profile/<?php echo $output->user_pic;?>" alt="avatar" onerror="this.onerror=null;this.src='<?php echo $this->config->item('base_url');?>assets/images/user.png';" data-toggle="tooltip" title="<?php echo $output->user_name;?>" class="rounded-circle w100" alt="" style="height: 100px;"> </div>
                                     <div class="mb-2">
@@ -219,6 +287,7 @@
                         <?php } } ?>        
                     </div>
                 </div>
+
                 <div class="tab-pane fade" id="addnew" role="tabpanel">
                     <div class="row clearfix">
                         <div class="col-lg-12">
@@ -398,9 +467,8 @@
             </div>
         </div>
     </div>
-    <script src='https://rendro.github.io/easy-pie-chart/javascripts/jquery.easy-pie-chart.js'></script>
-    <script src='https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js'></script>
-    <script src='https://use.fontawesome.com/e8927eb029.js'></script>
+
+
     <script>
         $(document).ready(function(){
             $(".datepicker").datepicker({
@@ -455,11 +523,6 @@
                     async: false			
                 });
             }
-        });
-
-
-        $(function() {
-            cardpagination();
         });
 
     </script>

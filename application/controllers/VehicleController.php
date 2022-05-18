@@ -1,6 +1,6 @@
 <?php
 
-class UsersController extends CI_Controller {
+class VehicleController extends CI_Controller {
 
     function __construct() {
         parent::__construct();
